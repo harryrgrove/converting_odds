@@ -44,6 +44,6 @@ FA_odds_dict = {'Man City': (4, 9),
             'Coventry': (7, 1),
             'Northampton': (9, 1)}
 
-print(sum([convert_odds(FA_odds_dict[i]) for i in FA_odds_dict]))
+print([convert_odds(FA_odds_dict[i]) ** find_k(FA_odds_dict, 8) for i in FA_odds_dict])
 
 print(find_k(FA_odds_dict, 8))
