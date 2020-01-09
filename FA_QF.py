@@ -42,8 +42,20 @@ FA_odds_dict = {'Man City': (4, 9),
             'Reading': (6, 1),
             'Oxford Utd': (13, 2),
             'Coventry': (7, 1),
-            'Northampton': (9, 1)}
+            'Northampton': (9, 1),
+            'Watford': (9, 1),
+            'Hull': (10, 1),
+            'Blackpool': (11, 1),
+            'Fulham': (12, 1),
+            'Bristol City': (18, 1),
+            'Bristol Rovers': (20, 1),
+            'Carlisle': (28, 1),
+            'Middlesbrough': (40, 1),
+            'Rochdale': (40, 1),
+            'Shrewsbury': (40, 1)}
 
-print([convert_odds(FA_odds_dict[i]) ** find_k(FA_odds_dict, 8) for i in FA_odds_dict])
-
-print(find_k(FA_odds_dict, 8))
+k = find_k(FA_odds_dict, 8)
+print('k =', k)
+print('maximum difference at prob =', (1 / k) ** (1/(k - 1)))
+for x, y in {i: convert_odds(FA_odds_dict[i]) ** k for i in FA_odds_dict}.items():
+    print(x + ' ' * (20 - len(x)) + str(round(y, 4)))
